@@ -1,5 +1,21 @@
 <div>
+<% if false %> <%# enclosed code wont run%>
+  <%#hard code link path%>
   <% @students.each do |student| %>
-    <div><%= student.first_name + " " + student.last_name %></div>
+    <div><a href='<%= "/students/#{student.id}" %>'><%= student.to_s %></div>
   <% end %>
+<% end %>
+
+
+
+
+
+
+  <%# refactored path%>
+  <% @students.each do |student| %>
+    <div><%= link_to student.to_s, student_path(student) %></div>
+  <% end %>
+
+
+
 </div>
